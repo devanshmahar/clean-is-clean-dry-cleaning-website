@@ -1,0 +1,10 @@
+{
+  "name": "clean-is-clean-website",
+  "version": "1.0.0",
+  "description": "Clean Is Clean - Premium Laundry & Dry Cleaning Web App with SQLite database, GPS Geolocation & WhatsApp Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}

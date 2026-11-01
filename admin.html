@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard — Clean Is Clean Bookings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 20px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .admin-table th, .admin-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .admin-table th {
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+    }
+    .admin-table tr:hover {
+      background: #f8fafc;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #fef3c7;
+      color: #b45309;
+    }
+  </style>
+</head>
+<body style="padding-bottom: 30px;">
+  <div class="container" style="padding-top: 40px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h2 style="color:var(--primary); font-size:2rem;">📦 Clean Is Clean — Admin Database</h2>
+        <p style="color:var(--text-muted);">Real-time list of all customer bookings saved in the database.</p>
+      </div>
+      <div>
+        <a href="/" class="btn-primary"><i class="fa-solid fa-arrow-left"></i> Back to Website</a>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Date & Time</th>
+            <th>Customer</th>
+            <th>Phone</th>
+            <th>Address & GPS</th>
+            <th>Pickup Slot</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsTableBody">
+          <tr><td colspan="8" style="text-align:center; padding:30px;">Loading bookings from database...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const BOOKINGS_ENDPOINT = window.location.hostname === 'localhost' && window.location.port === '3000' ? '/api/bookings' : '/api/bookings.php';
+    async function loadBookings() {
+      try {
+        const res = await fetch(BOOKINGS_ENDPOINT);
+        const data = await res.json();
+        const tbody = document.getElementById('bookingsTableBody');
+        
+        if (!data.bookings || data.bookings.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:30px; color:var(--text-muted);">No bookings recorded in the database yet.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = data.bookings.map(b => `
+          <tr>
+            <td><b>${b.booking_code}</b></td>
+            <td><small>${b.created_at}</small></td>
+            <td><b>${b.customer_name}</b></td>
+            <td><a href="tel:${b.phone}">${b.phone}</a></td>
+            <td>
+              ${b.address}
+              ${b.landmark ? `<br><small style="color:var(--text-muted);"><i class="fa-solid fa-landmark"></i> ${b.landmark}</small>` : ''}
+              ${b.maps_link ? `<br><a href="${b.maps_link}" target="_blank" style="color:var(--cyan); font-weight:600;"><i class="fa-solid fa-map-location-dot"></i> View on Google Maps</a>` : ''}
+            </td>
+            <td>${b.pickup_date} (${b.pickup_slot})</td>
+            <td style="font-weight:800; color:var(--primary);">₹${b.total_amount}</td>
+            <td><span class="status-badge">${b.status}</span></td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    loadBookings();
+    setInterval(loadBookings, 10000); // Auto-refresh every 10s
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+[
+  { "id": "wf", "name": "Wash & Fold", "category": "kg", "unit": "/KG", "price": 79, "popular": true, "icon": "fa-tshirt", "desc": "Everyday wear washed, dried & neatly folded" },
+  { "id": "wi", "name": "Wash & Iron", "category": "kg", "unit": "/KG", "price": 99, "popular": true, "icon": "fa-iron", "desc": "Washing + crisp steam press for shirts & formals" },
+  { "id": "pl", "name": "Premium Laundry", "category": "kg", "unit": "/KG", "price": 149, "popular": false, "icon": "fa-crown", "desc": "Fabric softener, anti-bacterial wash, customized care" },
+  { "id": "wl", "name": "Woolen Laundry", "category": "kg", "unit": "/KG", "price": 199, "popular": false, "icon": "fa-mitten", "desc": "Gentle cold cycle specifically for wool & delicate knits" },
+  { "id": "sofa", "name": "Sofa Cleaning", "category": "special", "unit": "/Seat", "price": 250, "popular": false, "icon": "fa-couch", "desc": "Deep foam extraction shampooing at your doorstep" },
+  { "id": "car", "name": "Car Cleaning", "category": "special", "unit": "/Starting", "price": 599, "popular": false, "icon": "fa-car", "desc": "Interior vacuuming, steam sanitization & upholstery" },
+  { "id": "carpet", "name": "Carpet Cleaning", "category": "special", "unit": "/Starting", "price": 350, "popular": false, "icon": "fa-rug", "desc": "Deep steam extraction & odor removal" },
+  { "id": "shoe", "name": "Shoe Cleaning", "category": "special", "unit": "/Pair", "price": 199, "popular": false, "icon": "fa-shoe-prints", "desc": "Sneaker & formal leather shoe deep cleaning & buffing" },
+
+  { "id": "m_shirt", "name": "Shirt / T-Shirt", "category": "men", "dryclean": 119, "steamIron": 47, "icon": "fa-tshirt" },
+  { "id": "m_kurta", "name": "Kurta (Plain/Fancy)", "category": "men", "dryclean": 119, "steamIron": 47, "icon": "fa-user" },
+  { "id": "m_pant", "name": "Trousers / Jeans", "category": "men", "dryclean": 119, "steamIron": 47, "icon": "fa-columns" },
+  { "id": "m_blazer", "name": "Coat / Blazer", "category": "men", "dryclean": 239, "steamIron": 95, "icon": "fa-vest" },
+  { "id": "m_suit2", "name": "Suit (2 Piece)", "category": "men", "dryclean": 359, "steamIron": 119, "icon": "fa-user-tie" },
+  { "id": "m_suit3", "name": "Suit (3 Piece)", "category": "men", "dryclean": 479, "steamIron": 179, "icon": "fa-user-tie" },
+  { "id": "m_sherwani", "name": "Sherwani", "category": "men", "dryclean": 599, "steamIron": 239, "icon": "fa-gem" },
+  { "id": "m_jacket", "name": "Winter Jacket", "category": "men", "dryclean": 359, "steamIron": 119, "icon": "fa-snowflake" },
+  { "id": "m_sweater", "name": "Sweater / Pullover", "category": "men", "dryclean": 179, "steamIron": 71, "icon": "fa-cloud" },
+
+  { "id": "w_saree", "name": "Saree (Cotton / Silk / Georgette)", "category": "women", "dryclean": 179, "steamIron": 71, "icon": "fa-female" },
+  { "id": "w_saree_hvy", "name": "Saree (Heavy Embroidery)", "category": "women", "dryclean": 359, "steamIron": 119, "icon": "fa-gem" },
+  { "id": "w_blouse", "name": "Blouse / Top", "category": "women", "dryclean": 95, "steamIron": 35, "icon": "fa-tshirt" },
+  { "id": "w_kurta", "name": "Kurta / Kameez", "category": "women", "dryclean": 119, "steamIron": 47, "icon": "fa-user" },
+  { "id": "w_salwar", "name": "Salwar / Pant / Plazo", "category": "women", "dryclean": 119, "steamIron": 47, "icon": "fa-columns" },
+  { "id": "w_dress", "name": "Dress / Gown", "category": "women", "dryclean": 169, "steamIron": 59, "icon": "fa-female" },
+  { "id": "w_lehenga", "name": "Lehenga / Bridal Set", "category": "women", "dryclean": 599, "steamIron": 239, "icon": "fa-star" },
+  { "id": "w_dupatta", "name": "Dupatta (Plain/Heavy)", "category": "women", "dryclean": 95, "steamIron": 35, "icon": "fa-wind" },
+
+  { "id": "k_frock", "name": "Kids Frock / Dress", "category": "kids", "dryclean": 119, "steamIron": 47, "icon": "fa-child" },
+  { "id": "k_tshirt", "name": "Kids T-Shirt / Shirt", "category": "kids", "dryclean": 71, "steamIron": 23, "icon": "fa-tshirt" },
+  { "id": "k_shorts", "name": "Kids Shorts / Skirt", "category": "kids", "dryclean": 47, "steamIron": 23, "icon": "fa-columns" },
+  { "id": "k_suit", "name": "Kids 2Pc / 3Pc Suit", "category": "kids", "dryclean": 239, "steamIron": 95, "icon": "fa-user-tie" },
+  { "id": "k_blanket", "name": "Kids Blanket", "category": "kids", "dryclean": 155, "steamIron": 0, "icon": "fa-bed" },
+
+  { "id": "h_bed_s", "name": "Bed Sheet (Single)", "category": "household", "dryclean": 119, "steamIron": 47, "icon": "fa-bed" },
+  { "id": "h_bed_d", "name": "Bed Sheet (Double)", "category": "household", "dryclean": 179, "steamIron": 71, "icon": "fa-bed" },
+  { "id": "h_blanket_s", "name": "Blanket / Comforter (Single)", "category": "household", "dryclean": 359, "steamIron": 0, "icon": "fa-snowflake" },
+  { "id": "h_blanket_d", "name": "Blanket / Quilt / Rajai (Double)", "category": "household", "dryclean": 479, "steamIron": 0, "icon": "fa-snowflake" },
+  { "id": "h_quilt_hvy", "name": "Heavy Quilt (King Size)", "category": "household", "dryclean": 599, "steamIron": 0, "icon": "fa-bed" },
+  { "id": "h_pillow", "name": "Pillow Cover", "category": "household", "dryclean": 59, "steamIron": 23, "icon": "fa-square" },
+  { "id": "h_curtain", "name": "Curtains (per panel)", "category": "household", "dryclean": 149, "steamIron": 59, "icon": "fa-scroll" }
+]

@@ -1,0 +1,40 @@
+# Clean Is Clean - Hostinger Apache / LiteSpeed Configuration
+RewriteEngine On
+
+# 1. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. REST API Rewrites (maps /api/rates -> /api/rates.php & /api/bookings -> /api/bookings.php)
+RewriteRule ^api/rates/?$ api/rates.php [L,QSA]
+RewriteRule ^api/bookings/?$ api/bookings.php [L,QSA]
+
+# 3. Byte Range Requests for 3D Video Scrubbing
+<IfModule mod_headers.c>
+    Header set Accept-Ranges bytes
+    # Cache static media for performance
+    <FilesMatch "\.(mp4|webm|jpg|jpeg|png|webp|gif|svg|ico|pdf)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+</IfModule>
+
+# 4. MIME Types
+AddType video/mp4 .mp4
+AddType application/pdf .pdf
+AddType application/json .json
+AddType image/webp .webp
+AddType image/svg+xml .svg
+
+# 5. Gzip / Deflate Compression for Speed
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule>
+
+# 6. Protect sensitive files
+<FilesMatch "(\.sql|composer\.json|\.git|\.env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
